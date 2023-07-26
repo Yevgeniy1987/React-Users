@@ -1,31 +1,62 @@
-import './App.css'
+import "./index.css";
+import { UserTable } from "./components/UserTable";
 
 function App() {
-
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <body>
+      <main>
+        <div className="container">
+          <h1 className="text-center w-full px-6 py-6 text-8xl font-bold bg-contain">
+            Users' table
+          </h1>
+          <div className="table-pos mt-5">
+            <form className="" id="searchForm">
+              <input
+                className="border-black border focus:border-lime-500 search-bar"
+                type="search"
+                name="searchQuery"
+              />
+              <button
+                className="rounded-3xl border border-black p-2 bg-stone-400 duration-300 hover:bg-orange-400"
+                type="submit"
+              >
+                Search
+              </button>
+            </form>
+            <select
+              className="border border-black"
+              name="orderBy"
+              id="sort-select"
+            >
+              <option value="name/asc">Name (A-Z)</option>
+              <option value="name/desc">Name (Z-A)</option>
+              <option value="username/asc">User Name (A-Z)</option>
+              <option value="username/desc">User Name (Z-A)</option>
+            </select>
+          </div>
+
+          <div class="users-table mt-5" id="users-table">
+            <table class="text-center w-full" id="table">
+              <thead class="border text-xl capitalize bg-slate-300">
+                <th className="table-text">name</th>
+                <th className="table-text">userName</th>
+                <th className="table-text">email</th>
+                <th className="table-text">street</th>
+                <th className="table-text">suite</th>
+                <th className="table-text">city</th>
+                <th className="table-text">zipCode</th>
+                <th className="table-text">phone</th>
+                <th className="table-text">website</th>
+                <th className="table-text">company</th>
+                <th className="table-text">action</th>
+              </thead>
+              <UserTable/>
+            </table>
+          </div>
+        </div>
+      </main>
+    </body>
+  );
 }
 
-export default App
+export default App;
