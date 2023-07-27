@@ -1,10 +1,10 @@
-import { Users } from "../Users";
+import { users } from "../Users";
 import { UserTable } from "./UserTable";
 
 export function UserList() {
   return (
     <tbody id="table-data">
-      {Users.map((user) => (
+      {users.map((user) => (
         <UserTable user={user} />
       ))}
     </tbody>
