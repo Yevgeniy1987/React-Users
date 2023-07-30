@@ -1,5 +1,6 @@
 import "./index.css";
-import { UserList } from "./components/UserList";
+
+import { UserTable } from "./components/UserTable";
 
 function App() {
   return (
@@ -35,24 +36,7 @@ function App() {
         </div>
 
         <div className="users-table mt-5" id="users-table">
-          <table className="text-center w-full" id="table">
-            <thead className="border text-xl capitalize bg-slate-300">
-              <tr>
-                <th className="table-text">name</th>
-                <th className="table-text">userName</th>
-                <th className="table-text">email</th>
-                <th className="table-text">street</th>
-                <th className="table-text">suite</th>
-                <th className="table-text">city</th>
-                <th className="table-text">zipCode</th>
-                <th className="table-text">phone</th>
-                <th className="table-text">website</th>
-                <th className="table-text">company</th>
-                <th className="table-text">action</th>
-              </tr>
-            </thead>
-            <UserList />
-          </table>
+          <UserTable />
         </div>
       </div>
     </main>

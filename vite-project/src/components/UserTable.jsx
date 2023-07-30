@@ -1,32 +1,29 @@
-export function UserTable({ user }) {
-  const { id, name, username, email, address, phone, website, company } = user;
-  const { street, suite, city, zipcode } = address;
-  const { name: companyName } = company;
+import { users } from "../data/users";
+import { UserTableRow } from "./UserTableRow";
 
+export function UserTable() {
   return (
-    <tr className="hover:bg-amber-200 font-medium">
-      <td className="table-text">{name}</td>
-      <td className="table-text">{username}</td>
-      <td className="table-text">{email}</td>
-      <td className="table-text">{street}</td>
-      <td className="table-text">{suite}</td>
-      <td className="table-text">{city}</td>
-      <td className="table-text">{zipcode}</td>
-      <td className="table-text">{phone}</td>
-      <td className="table-text">{website}</td>
-      <td className="table-text">{companyName}</td>
-      <td className="table-text">
-        <button
-          data-action="edit"
-          data-id={id}
-          className="btn border bg-gray-200 p-1"
-        >
-          Delete
-        </button>
-        <button data-id={id} className="btn border bg-red-200 p-1">
-          Update
-        </button>
-      </td>
-    </tr>
+    <table className="text-center w-full" id="table">
+      <thead className="border text-xl capitalize bg-slate-300">
+        <tr>
+          <th className="table-text">name</th>
+          <th className="table-text">userName</th>
+          <th className="table-text">email</th>
+          <th className="table-text">street</th>
+          <th className="table-text">suite</th>
+          <th className="table-text">city</th>
+          <th className="table-text">zipCode</th>
+          <th className="table-text">phone</th>
+          <th className="table-text">website</th>
+          <th className="table-text">company</th>
+          <th className="table-text">action</th>
+        </tr>
+      </thead>
+      <tbody id="table-data">
+        {users.map((user) => (
+          <UserTableRow key={user.id} user={user} />
+        ))}
+      </tbody>
+    </table>
   );
 }
