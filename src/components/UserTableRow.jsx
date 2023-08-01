@@ -1,8 +1,11 @@
+import { ModalWindow } from "./ModalWindow";
 export function UserTableRow({ user }) {
   const { id, name, username, email, address, phone, website, company } = user;
   const { street, suite, city, zipcode } = address;
   const { name: companyName } = company;
-
+  const handleEdit = (id, e) => {
+    <ModalWindow />;
+  };
   return (
     <tr className="hover:bg-amber-200 font-medium">
       <td className="table-text">{name}</td>
@@ -20,11 +23,14 @@ export function UserTableRow({ user }) {
           data-action="edit"
           data-id={id}
           className="btn border bg-gray-200 p-1"
-          onClick={()=>}
         >
           Delete
         </button>
-        <button data-id={id} className="btn border bg-red-200 p-1">
+        <button
+          data-id={id}
+          className="btn border bg-red-200 p-1"
+          onClick={(e) => handleEdit(id)}
+        >
           Update
         </button>
       </td>

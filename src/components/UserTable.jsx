@@ -1,6 +1,7 @@
 import { users } from "../data/users";
 import { UserTableRow } from "./UserTableRow";
 
+
 export function UserTable() {
   return (
     <table className="text-center w-full" id="table">

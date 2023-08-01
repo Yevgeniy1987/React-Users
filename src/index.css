@@ -282,9 +282,12 @@ h1 {
     transform: rotate(360deg);
   }
 }
+
 .table-pos {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
+  margin: auto;
 }
 .table-text {
   padding: 10px 10px;
