@@ -1,63 +1,35 @@
 import "./index.css";
+import { useState } from "react";
+import { users } from "./data/users";
 
 import { UserTable } from "./components/UserTable";
-import { ModalWindow } from "./components/ModalWindow";
+import { AddUserTable } from "./components/AddUserTable";
 
 function App() {
+  // const { id, name, username, email, address, phone, website, company } = users;
+  // const { street, suite, city, zipcode } = address;
+  // const { name: companyName } = company;
+
   return (
     <main>
       <div className="container">
         <h1 className="text-center w-full px-6 py-6 text-8xl font-bold bg-contain">
           Users' table
         </h1>
-        <div className="table-pos mt-5">
-          <form className="modal_content hover:bg-amber-200 font-medium">
-            <div>
-              <label>Name</label>
-              <input className=""></input>
-            </div>
-            <div>
-              <label>user name</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <label>Email</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <label>Street</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <label>Suite</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <label htmlFor="">city</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <label>Zipcode</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <label>Phone</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <label>Website</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <label>Company name</label>
-              <input className="table-text"></input>
-            </div>
-            <div>
-              <button className="btn border bg-gray-200 p-1">Update</button>
-              <button className="btn border bg-red-200 p-1">Cancel</button>
-            </div>
-          </form>
-          ;
+        <div className="w-1/2">
+          <AddUserTable
+            // id={id}
+            // name={name}
+            // username={username}
+            // email={email}
+            // phone={phone}
+            // website={website}
+            // street={street}
+            // suite={suite}
+            // city={city}
+            // zipcode={zipcode}
+            // companyName={companyName}
+          />
           <form>
             <input
               className="border-black border focus:border-lime-500 search-bar"

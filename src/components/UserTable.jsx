@@ -3,6 +3,7 @@ import { UserTableRow } from "./UserTableRow";
 
 
 export function UserTable() {
+  
   return (
     <table className="text-center w-full" id="table">
       <thead className="border text-xl capitalize bg-slate-300">
@@ -20,9 +21,9 @@ export function UserTable() {
           <th className="table-text">action</th>
         </tr>
       </thead>
-      <tbody id="table-data">
+      <tbody>
         {users.map((user) => (
-          <UserTableRow key={user.id} user={user} />
+          <UserTableRow key={user.id} user={user}/>
         ))}
       </tbody>
     </table>
