@@ -1,14 +1,12 @@
 import "./index.css";
 import { useState } from "react";
-import { users } from "./data/users";
+import { users as usersData } from "./data/users";
 
 import { UserTable } from "./components/UserTable";
 import { AddUserTable } from "./components/AddUserTable";
 
 function App() {
-  // const { id, name, username, email, address, phone, website, company } = users;
-  // const { street, suite, city, zipcode } = address;
-  // const { name: companyName } = company;
+  const [users, setUsers] = useState(usersData);
 
   return (
     <main>
@@ -17,19 +15,7 @@ function App() {
           Users' table
         </h1>
         <div className="w-1/2">
-          <AddUserTable
-            // id={id}
-            // name={name}
-            // username={username}
-            // email={email}
-            // phone={phone}
-            // website={website}
-            // street={street}
-            // suite={suite}
-            // city={city}
-            // zipcode={zipcode}
-            // companyName={companyName}
-          />
+          <AddUserTable />
           <form>
             <input
               className="border-black border focus:border-lime-500 search-bar"
@@ -56,7 +42,7 @@ function App() {
         </div>
 
         <div className="users-table mt-5" id="users-table">
-          <UserTable />
+          <UserTable users={users} setUsers={setUsers} />
         </div>
       </div>
     </main>

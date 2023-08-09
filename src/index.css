@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* cyrillic-ext */
 
 @font-face {
@@ -257,7 +261,7 @@ h1 {
   color: crimson;
   background: url(../img/4o8QNc.webp), black;
 }
-.spinner-wrap{
+.spinner-wrap {
   display: flex;
   align-items: center;
 }

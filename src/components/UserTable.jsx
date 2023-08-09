@@ -1,9 +1,6 @@
-import { users } from "../data/users";
 import { UserTableRow } from "./UserTableRow";
 
-
-export function UserTable() {
-  
+export function UserTable({users, setUsers}) {
   return (
     <table className="text-center w-full" id="table">
       <thead className="border text-xl capitalize bg-slate-300">
@@ -23,7 +20,7 @@ export function UserTable() {
       </thead>
       <tbody>
         {users.map((user) => (
-          <UserTableRow key={user.id} user={user}/>
+          <UserTableRow key={user.id} user={user} setUsers={setUsers} />
         ))}
       </tbody>
     </table>
