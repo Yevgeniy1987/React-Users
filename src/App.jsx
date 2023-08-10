@@ -4,6 +4,7 @@ import { users as usersData } from "./data/users";
 
 import { UserTable } from "./components/UserTable";
 import { AddUserTable } from "./components/AddUserTable";
+import { Sort } from "./components/Sort";
 
 function App() {
   const [users, setUsers] = useState(usersData);
@@ -29,16 +30,7 @@ function App() {
               Search
             </button>
           </form>
-          <select
-            className="border border-black"
-            name="orderBy"
-            id="sort-select"
-          >
-            <option value="name/asc">Name (A-Z)</option>
-            <option value="name/desc">Name (Z-A)</option>
-            <option value="username/asc">User Name (A-Z)</option>
-            <option value="username/desc">User Name (Z-A)</option>
-          </select>
+          <Sort users={users} setUsers={setUsers}/>
         </div>
 
         <div className="users-table mt-5" id="users-table">
