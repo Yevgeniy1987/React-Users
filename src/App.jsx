@@ -8,6 +8,7 @@ import { Sort } from "./components/Sort";
 
 function App() {
   const [users, setUsers] = useState(usersData);
+  const [active, setActive] = useState(false);
 
   return (
     <main>
@@ -16,7 +17,7 @@ function App() {
           Users' table
         </h1>
         <div className="w-1/2">
-          <AddUserTable />
+          <AddUserTable users={users} setUsers={setUsers} />
           <form>
             <input
               className="border-black border focus:border-lime-500 search-bar"
