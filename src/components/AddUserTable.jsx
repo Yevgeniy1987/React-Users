@@ -15,6 +15,7 @@ export function AddUserTable({ setUsers }) {
     const companyName = form.companyName.value;
 
     const newUser = {
+      id:window.crypto.randomUUID(),
       name,
       username,
       email,
@@ -45,7 +46,7 @@ export function AddUserTable({ setUsers }) {
         <input name="name" className="table-text" id="name" />
       </div>
       <div className="flex g-3 flex-col">
-        <label htmlFor="username">user name</label>
+        <label htmlFor="username">User name</label>
         <input name="userName" className="table-text" id="username" />
       </div>
       <div className="flex g-3 flex-col">
@@ -61,7 +62,7 @@ export function AddUserTable({ setUsers }) {
         <input name="suite" className="table-text" id="suite" />
       </div>
       <div className="flex g-3 flex-col">
-        <label htmlFor="city">city</label>
+        <label htmlFor="city">City</label>
         <input name="city" className="table-text" id="city" />
       </div>
       <div className="flex g-3 flex-col">
