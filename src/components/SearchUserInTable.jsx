@@ -4,7 +4,7 @@ export function SearchUserInTable({ setUsers }) {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    const searchQueryString = e.searchQuery.value
+    const searchQueryString = e.target.searchQuery.value
       .trim()
       .replaceAll(/\s{2,}/g, " ")
       .toLowerCase();
