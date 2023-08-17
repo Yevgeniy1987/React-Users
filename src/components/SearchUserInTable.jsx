@@ -1,3 +1,5 @@
+// import { users } from "../data/users";
+
 export function SearchUserInTable({ setUsers }) {
   const handleSearch = (e) => {
     e.preventDefault();
@@ -6,19 +8,14 @@ export function SearchUserInTable({ setUsers }) {
       .trim()
       .replaceAll(/\s{2,}/g, " ")
       .toLowerCase();
-    console.log(searchQueryString);
 
-    const filteredUsers = users.filter((user) => {
-      return `${user.name} 
-        ${user.username} 
-        ${user.address}`
-        .toLowerCase()
-        .includes(searchQueryString);
-    });
-    setUsers((users) => [filteredUsers]);
+    fetch(`https://jsonplaceholder.typicode.com/users?q=${searchQueryString}`)
+      .then((response) => response.json())
+      .then((usersData) => setUsers(usersData));
   };
+
   return (
-    <form>
+    <form onSubmit={handleSearch}>
       <input
         className="border-black border focus:border-lime-500 search-bar"
         type="search"
@@ -27,7 +24,6 @@ export function SearchUserInTable({ setUsers }) {
       <button
         className="rounded-3xl border border-black p-2 bg-stone-400 duration-300 hover:bg-orange-400"
         type="submit"
-        onChange={(e) => handleSearch(e)}
       >
         Search
       </button>

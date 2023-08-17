@@ -1,10 +1,16 @@
-import { smartSort } from "../helpers/smartSort";
+// import { smartSort } from "../helpers/smartSort";
 
 export function SortUsers({ setUsers }) {
   const handleSort = (e) => {
     const [key, order] = e.target.value.split("/");
 
-    setUsers((users) => smartSort(users, key, order));
+    fetch(
+      `https://jsonplaceholder.typicode.com/users?_sort=${key}&_order=${order}`
+    )
+      .then((response) => response.json())
+      .then((usersData) => setUsers(usersData));
+
+    // setUsers((users) => smartSort(users, key, order));
   };
 
   return (

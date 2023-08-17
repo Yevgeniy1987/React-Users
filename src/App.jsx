@@ -1,14 +1,22 @@
-import "./index.css";
-import { useState } from "react";
-import { users as usersData } from "./data/users";
+import { useEffect, useState } from "react";
+
+// import { users as usersData } from "./data/users";
 
 import { UserTable } from "./components/UserTable";
 import { AddUserTable } from "./components/AddUserTable";
 import { SortUsers } from "./components/SortUsers";
 import { SearchUserInTable } from "./components/SearchUserInTable";
 
+import "./index.css";
+
 function App() {
-  const [users, setUsers] = useState(usersData);
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((usersData) => setUsers(usersData));
+  },[]);
 
   return (
     <main>
@@ -21,7 +29,8 @@ function App() {
           <AddUserTable setUsers={setUsers} />
         </div>
         <div className="flex justify-between">
-          <SearchUserInTable setUsers={setUsers} />
+          <SearchUserInTable setUsers={setUsers} users={users}/>
+
           <SortUsers setUsers={setUsers} />
         </div>
         <div className="users-table mt-5" id="users-table">
